@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_dalel_app/core/routes/app_router.dart';
+import 'package:new_dalel_app/core/utiles/app_colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,8 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+       scaffoldBackgroundColor: AppColors.offWhite,
       ),
       routerConfig: router,
       debugShowCheckedModeBanner: false,
