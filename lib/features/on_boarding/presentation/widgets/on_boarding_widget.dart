@@ -10,14 +10,27 @@ class OnBoardingWidgetBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      height: 500,
       child: PageView.builder(
+        physics: const BouncingScrollPhysics(),
         controller: _controller,
         itemCount: 3,
         itemBuilder: (context, index) {
           return Column(
             children: [
-              Image.asset(AppAssets.onBoarding1),
+              Container(
+                width: 343,
+                height: 290,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      AppAssets.onBoarding1,
+                    ),
+                    fit: BoxFit.fill
+                  ),
+                ),
+              ),
               const SizedBox(
                 height: 24,
               ),
@@ -27,9 +40,8 @@ class OnBoardingWidgetBody extends StatelessWidget {
               ),
               Text(
                 'Explore The history with Dalel in a smart way',
-                style: CustomTextStyles.poppins500style24.copyWith(
-                  fontWeight: FontWeight.bold
-                ),
+                style: CustomTextStyles.poppins500style24
+                    .copyWith(fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
@@ -37,10 +49,11 @@ class OnBoardingWidgetBody extends StatelessWidget {
               ),
               Text(
                 'Using our app’s history libraries you can find many historical periods',
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
                 style: CustomTextStyles.poppins300style16,
                 textAlign: TextAlign.center,
               ),
-
             ],
           );
         },
@@ -48,4 +61,3 @@ class OnBoardingWidgetBody extends StatelessWidget {
     );
   }
 }
-

@@ -13,7 +13,8 @@ class OnBoardingView extends StatelessWidget {
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
+          child: ListView(
+            physics: const BouncingScrollPhysics(),
             children: [
               const SizedBox(
                 height: 40,
@@ -22,6 +23,11 @@ class OnBoardingView extends StatelessWidget {
               const CustomNavBar(),
               /// page view
               OnBoardingWidgetBody(),
+              /// media query for responsive
+              /// i can use SizedBox also
+              SizedBox(
+                height: MediaQuery.of(context).size.height /4.5,
+              ),
               const CustomButton(text: AppStrings.next),
               const SizedBox(
                 height: 17,
