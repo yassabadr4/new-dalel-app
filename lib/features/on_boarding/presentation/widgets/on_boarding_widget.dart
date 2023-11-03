@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_dalel_app/core/utiles/app_assets.dart';
 import 'package:new_dalel_app/core/utiles/app_text_styles.dart';
+import 'package:new_dalel_app/features/on_boarding/data/models/on_boarding_model.dart';
 import 'package:new_dalel_app/features/on_boarding/presentation/widgets/custom_smooth_page.dart';
 
 class OnBoardingWidgetBody extends StatelessWidget {
@@ -15,17 +16,17 @@ class OnBoardingWidgetBody extends StatelessWidget {
       child: PageView.builder(
         physics: const BouncingScrollPhysics(),
         controller: _controller,
-        itemCount: 3,
+        itemCount: onBoardingData.length,
         itemBuilder: (context, index) {
           return Column(
             children: [
               Container(
                 width: 343,
                 height: 290,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
-                      AppAssets.onBoarding1,
+                      onBoardingData[index].imagePath,
                     ),
                     fit: BoxFit.fill
                   ),
@@ -39,7 +40,7 @@ class OnBoardingWidgetBody extends StatelessWidget {
                 height: 32,
               ),
               Text(
-                'Explore The history with Dalel in a smart way',
+                onBoardingData[index].title,
                 style: CustomTextStyles.poppins500style24
                     .copyWith(fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
@@ -48,7 +49,7 @@ class OnBoardingWidgetBody extends StatelessWidget {
                 height: 16,
               ),
               Text(
-                'Using our app’s history libraries you can find many historical periods',
+                onBoardingData[index].subTitle,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: CustomTextStyles.poppins300style16,

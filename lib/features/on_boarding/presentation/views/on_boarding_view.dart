@@ -26,7 +26,7 @@ class OnBoardingView extends StatelessWidget {
               /// media query for responsive
               /// i can use SizedBox also
               SizedBox(
-                height: MediaQuery.of(context).size.height /4.5,
+                height: MediaQuery.of(context).size.height /5,
               ),
               const CustomButton(text: AppStrings.next),
               const SizedBox(
