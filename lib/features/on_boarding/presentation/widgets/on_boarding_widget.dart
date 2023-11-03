@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:new_dalel_app/core/utiles/app_assets.dart';
 import 'package:new_dalel_app/core/utiles/app_text_styles.dart';
 import 'package:new_dalel_app/features/on_boarding/data/models/on_boarding_model.dart';
 import 'package:new_dalel_app/features/on_boarding/presentation/widgets/custom_smooth_page.dart';
 
 class OnBoardingWidgetBody extends StatelessWidget {
-  OnBoardingWidgetBody({super.key});
+  const OnBoardingWidgetBody(
+      {super.key, required this.controller, this.onPageChanged});
 
-  final PageController _controller = PageController();
+  final PageController controller;
+  final void Function(int)? onPageChanged;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 500,
       child: PageView.builder(
+        onPageChanged: onPageChanged,
         physics: const BouncingScrollPhysics(),
-        controller: _controller,
+        controller: controller,
         itemCount: onBoardingData.length,
         itemBuilder: (context, index) {
           return Column(
@@ -25,17 +27,16 @@ class OnBoardingWidgetBody extends StatelessWidget {
                 height: 290,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(
-                      onBoardingData[index].imagePath,
-                    ),
-                    fit: BoxFit.fill
-                  ),
+                      image: AssetImage(
+                        onBoardingData[index].imagePath,
+                      ),
+                      fit: BoxFit.fill),
                 ),
               ),
               const SizedBox(
                 height: 24,
               ),
-              CustomSmoothPageIndicator(controller: _controller),
+              CustomSmoothPageIndicator(controller: controller),
               const SizedBox(
                 height: 32,
               ),

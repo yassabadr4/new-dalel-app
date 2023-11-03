@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_dalel_app/core/app_strings.dart';
+import 'package:new_dalel_app/core/utiles/app_strings.dart';
 import 'package:new_dalel_app/core/functions/navigation.dart';
 import 'package:new_dalel_app/core/utiles/app_text_styles.dart';
 
