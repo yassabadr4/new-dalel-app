@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:new_dalel_app/core/functions/navigation.dart';
+import 'package:new_dalel_app/features/on_boarding/presentation/views/functions/on_boarding.dart';
 
 import 'package:new_dalel_app/features/on_boarding/presentation/widgets/custom_nav_bar.dart';
 import 'package:new_dalel_app/features/on_boarding/presentation/widgets/get_buttons.dart';
@@ -32,6 +33,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
               /// Skip
               CustomNavBar(onTap: () {
+                onBoardingVisited();
                 customNavigateReplacement(context, '/signUp');
               }),
 
