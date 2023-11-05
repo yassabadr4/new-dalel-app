@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:new_dalel_app/core/database/cache/cache_helper.dart';
 import 'package:new_dalel_app/core/routes/app_router.dart';
 import 'package:new_dalel_app/core/services/services_locator.dart';
-import 'package:new_dalel_app/core/utiles/app_colors.dart';
+import 'package:new_dalel_app/core/utils/app_colors.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();

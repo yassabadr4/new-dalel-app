@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_dalel_app/core/utiles/app_text_styles.dart';
+import 'package:new_dalel_app/core/utils/app_text_styles.dart';
 import 'package:new_dalel_app/features/on_boarding/data/models/on_boarding_model.dart';
 import 'package:new_dalel_app/features/on_boarding/presentation/widgets/custom_smooth_page.dart';
 

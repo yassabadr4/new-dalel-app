@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_dalel_app/core/utiles/app_colors.dart';
+import 'package:new_dalel_app/core/utils/app_colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class CustomSmoothPageIndicator extends StatelessWidget {

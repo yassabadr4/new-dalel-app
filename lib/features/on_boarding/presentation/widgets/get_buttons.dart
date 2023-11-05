@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:new_dalel_app/core/utiles/app_strings.dart';
 import 'package:new_dalel_app/core/functions/navigation.dart';
-import 'package:new_dalel_app/core/utiles/app_text_styles.dart';
+import 'package:new_dalel_app/core/utils/app_strings.dart';
+import 'package:new_dalel_app/core/utils/app_text_styles.dart';
 import 'package:new_dalel_app/core/widgets/custom_button.dart';
 import 'package:new_dalel_app/features/on_boarding/data/models/on_boarding_model.dart';
 import 'package:new_dalel_app/features/on_boarding/presentation/views/functions/on_boarding.dart';

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:new_dalel_app/core/utiles/app_colors.dart';
-import 'package:new_dalel_app/core/utiles/app_text_styles.dart';
+import 'package:new_dalel_app/core/utils/app_colors.dart';
+import 'package:new_dalel_app/core/utils/app_text_styles.dart';
+
 
 class CustomButton extends StatelessWidget {
   const CustomButton({super.key, this.color, required this.text, this.onPressed});
