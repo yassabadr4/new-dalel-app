@@ -15,7 +15,7 @@ class CustomTextField extends StatelessWidget {
             labelStyle: CustomTextStyles.poppins500style18,
             border: getBorderStyle(),
             enabledBorder: getBorderStyle(),
-            focusedBorder: getBorderStyle()
+            focusedBorder: getBorderStyle(),
         ),
       ),
     );
