@@ -19,6 +19,7 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
           borderRadius: BorderRadius.circular(4),
         ),
         side: const BorderSide(color: AppColors.grey),
+        activeColor: AppColors.deepBrown,
         onChanged: (newValue) {
           value = newValue!;
           setState(() {});
