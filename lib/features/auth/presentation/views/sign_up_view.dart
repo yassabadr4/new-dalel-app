@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_dalel_app/core/utils/app_strings.dart';
-import 'package:new_dalel_app/core/widgets/custom_button.dart';
 import 'package:new_dalel_app/features/auth/presentation/widgets/custom_sign_up_form.dart';
-import 'package:new_dalel_app/features/auth/presentation/widgets/custom_text_field.dart';
 import 'package:new_dalel_app/features/auth/presentation/widgets/have_an_account_widget.dart';
-import 'package:new_dalel_app/features/auth/presentation/widgets/terms_and_condition_widget.dart';
 import 'package:new_dalel_app/features/auth/presentation/widgets/welcome_text_widget.dart';
 
 class SignUpView extends StatelessWidget {
@@ -42,6 +39,11 @@ class SignUpView extends StatelessWidget {
               child: HaveAnAccountWidget(
                 text1: AppStrings.alreadyHaveAnAccount,
                 text2: AppStrings.signIn,
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 16,
               ),
             ),
           ],
