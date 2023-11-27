@@ -41,6 +41,10 @@ class CustomSignUpForm extends StatelessWidget {
                 ),
                 CustomTextFormField(
                   labelText: AppStrings.password,
+                  suffixIcon: IconButton(
+                    icon: const Icon(Icons.visibility_rounded),
+                    onPressed: () {},
+                  ),
                   onChanged: (password) {
                     authCubit.password = password;
                   },
@@ -50,10 +54,12 @@ class CustomSignUpForm extends StatelessWidget {
                   height: 88,
                 ),
                 CustomButton(
-                  color: authCubit.termsAndConditionCheckBoxValue == false ? AppColors.grey : null,
+                  color: authCubit.termsAndConditionCheckBoxValue == false
+                      ? AppColors.grey
+                      : null,
                   text: AppStrings.signUp,
                   onPressed: () {
-                    if (authCubit.termsAndConditionCheckBoxValue==true) {
+                    if (authCubit.termsAndConditionCheckBoxValue == true) {
                       if (authCubit.signUpFormKey.currentState!.validate()) {
                         authCubit.signUpWithEmailAndPassword();
                       }

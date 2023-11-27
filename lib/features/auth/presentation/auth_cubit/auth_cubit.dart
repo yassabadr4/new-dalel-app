@@ -10,6 +10,7 @@ class AuthCubit extends Cubit<AuthState> {
   String? emailAddress;
   String? password;
   bool termsAndConditionCheckBoxValue = false;
+  bool? iconClick;
   GlobalKey<FormState> signUpFormKey = GlobalKey();
 
   signUpWithEmailAndPassword() async {
@@ -35,5 +36,9 @@ class AuthCubit extends Cubit<AuthState> {
   updateTermsAndConditionCheckBox({required newValue}){
     termsAndConditionCheckBoxValue = newValue;
     emit(TermsAndConditionUpdateState());
+  }
+  updateIconButton({required value}){
+    iconClick = value;
+    emit(IconClickState());
   }
 }

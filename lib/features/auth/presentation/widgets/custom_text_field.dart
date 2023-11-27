@@ -4,12 +4,12 @@ import 'package:new_dalel_app/core/utils/app_text_styles.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField(
-      {super.key, required this.labelText, this.onChanged, this.onFieldSubmitted});
+      {super.key, required this.labelText, this.onChanged, this.onFieldSubmitted, this.suffixIcon,});
 
   final String labelText;
   final void Function(String)? onChanged;
   final void Function(String)? onFieldSubmitted;
-
+  final Widget? suffixIcon;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,6 +26,7 @@ class CustomTextFormField extends StatelessWidget {
         cursorColor: AppColors.primaryColor,
         onFieldSubmitted: onFieldSubmitted,
         decoration: InputDecoration(
+          suffixIcon: suffixIcon,
           labelText: labelText,
           labelStyle: CustomTextStyles.poppins500style18,
           border: getBorderStyle(),
