@@ -12,6 +12,7 @@ class AuthCubit extends Cubit<AuthState> {
   bool termsAndConditionCheckBoxValue = false;
   bool? iconClick;
   GlobalKey<FormState> signUpFormKey = GlobalKey();
+  bool obscureText = true;
 
   signUpWithEmailAndPassword() async {
     try {
@@ -37,8 +38,12 @@ class AuthCubit extends Cubit<AuthState> {
     termsAndConditionCheckBoxValue = newValue;
     emit(TermsAndConditionUpdateState());
   }
-  updateIconButton({required value}){
-    iconClick = value;
+  updateIconButton(){
+    if(obscureText == true){
+      obscureText = false;
+    }else{
+      obscureText = true;
+    }
     emit(IconClickState());
   }
 }
