@@ -12,6 +12,7 @@ class AuthCubit extends Cubit<AuthState> {
   bool termsAndConditionCheckBoxValue = false;
   bool? iconClick;
   GlobalKey<FormState> signUpFormKey = GlobalKey();
+  GlobalKey<FormState> signInFormKey = GlobalKey();
   bool obscureText = true;
 
   signUpWithEmailAndPassword() async {
@@ -30,20 +31,40 @@ class AuthCubit extends Cubit<AuthState> {
         emit(SignUpFailureState('The account already exists for that email.'));
       }
     } catch (e) {
-      print(e.toString());
       emit(SignUpFailureState(e.toString()));
     }
   }
-  updateTermsAndConditionCheckBox({required newValue}){
+
+  updateTermsAndConditionCheckBox({required newValue}) {
     termsAndConditionCheckBoxValue = newValue;
     emit(TermsAndConditionUpdateState());
   }
-  updateIconButton(){
-    if(obscureText == true){
+
+  updateIconButton() {
+    if (obscureText == true) {
       obscureText = false;
-    }else{
+    } else {
       obscureText = true;
     }
     emit(IconClickState());
+  }
+
+  signInWithEmailAndPassword() async {
+    try {
+      emit(SignInLoadingState());
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailAddress!,
+        password: password!,
+      );
+      emit(SignInSuccessState());
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        emit(SignInFailureState(" No user found for that email"));
+      } else if (e.code == 'wrong-password') {
+        emit(SignInFailureState('Wrong password provided for that user.'));
+      }
+    } catch (e) {
+      emit(SignInFailureState(e.toString()));
+    }
   }
 }

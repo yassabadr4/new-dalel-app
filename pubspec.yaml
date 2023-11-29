@@ -43,6 +43,7 @@ dependencies:
   firebase_core: ^2.23.0
   firebase_auth: ^4.14.1
   fluttertoast: ^8.2.4
+  flutter_svg: ^2.0.9
 
 dev_dependencies:
   flutter_test:
@@ -89,6 +90,9 @@ flutter:
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Regular.ttf
+    - family: Saira
+      fonts:
+        - asset: assets/fonts/Saira_Condensed-Regular.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
