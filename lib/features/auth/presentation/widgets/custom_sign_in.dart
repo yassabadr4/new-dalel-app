@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_dalel_app/core/functions/custom_toast.dart';
 import 'package:new_dalel_app/core/functions/navigation.dart';
-
 import 'package:new_dalel_app/core/utils/app_colors.dart';
 import 'package:new_dalel_app/core/utils/app_strings.dart';
-import 'package:new_dalel_app/core/utils/app_text_styles.dart';
 import 'package:new_dalel_app/core/widgets/custom_button.dart';
 import 'package:new_dalel_app/features/auth/presentation/auth_cubit/auth_cubit.dart';
 import 'package:new_dalel_app/features/auth/presentation/auth_cubit/auth_state.dart';
