@@ -19,7 +19,19 @@ final class SignInSuccessState extends AuthState {}
 final class SignInFailureState extends AuthState {
   final String errMessage;
 
-  SignInFailureState(this.errMessage,);
+  SignInFailureState(
+    this.errMessage,
+  );
+}
+
+final class ResetPasswordLoadingState extends AuthState {}
+
+final class ResetPasswordSuccessState extends AuthState {}
+
+final class ResetPasswordFailureState extends AuthState {
+  final String errMessage;
+
+  ResetPasswordFailureState(this.errMessage);
 }
 
 final class TermsAndConditionUpdateState extends AuthState {}

@@ -18,8 +18,8 @@ class CustomSignUpForm extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if(state is SignUpSuccessState){
-          showToast('Account Created Successfully');
-          customNavigateReplacement(context, '/home');
+          showToast('Check your Email to verify your Account');
+          customNavigateReplacement(context, '/signIn');
         }else if(state is SignUpFailureState){
           showToast(state.errMessage);
         }

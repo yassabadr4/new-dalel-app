@@ -20,6 +20,8 @@ abstract class AppStrings {
       alreadyHaveAnAccount = "Already have an account ? ",
       dontHaveAnAccount = "Don’t have an account ? ",
       forgotPassword = "Forgot Password ?",
+      enterYourRegistered = 'Enter your registered email below to receive password reset instruction',
+      sendCode = 'Send Verification Code',
       //!Home Strings
       recommendations = "Recommendations",
       aboutAncientEgypt = "About Ancient Egypt",

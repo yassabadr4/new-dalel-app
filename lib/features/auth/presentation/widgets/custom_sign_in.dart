@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_dalel_app/core/functions/custom_toast.dart';
@@ -17,10 +18,11 @@ class CustomSignInForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        if(state is SignInSuccessState){
-          showToast('Welcome Back');
-          customNavigateReplacement(context, '/home');
-        }else if(state is SignInFailureState){
+        if (state is SignInSuccessState) {
+          FirebaseAuth.instance.currentUser!.emailVerified
+              ? customNavigateReplacement(context, '/home')
+              : showToast('Please Verify your Account');
+        } else if (state is SignInFailureState) {
           showToast(state.errMessage);
         }
       },
@@ -51,7 +53,8 @@ class CustomSignInForm extends StatelessWidget {
                           : const Icon(
                               Icons.visibility,
                             )),
-                ),  const SizedBox(
+                ),
+                const SizedBox(
                   height: 16,
                 ),
                 const ForgetPasswordWidget(),
@@ -65,7 +68,8 @@ class CustomSignInForm extends StatelessWidget {
                     : CustomButton(
                         text: AppStrings.signIn,
                         onPressed: () {
-                          if (authCubit.signInFormKey.currentState!.validate()) {
+                          if (authCubit.signInFormKey.currentState!
+                              .validate()) {
                             authCubit.signInWithEmailAndPassword();
                           }
                         },
@@ -76,4 +80,3 @@ class CustomSignInForm extends StatelessWidget {
     );
   }
 }
-

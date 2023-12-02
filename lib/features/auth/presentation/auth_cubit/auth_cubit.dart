@@ -13,6 +13,7 @@ class AuthCubit extends Cubit<AuthState> {
   bool? iconClick;
   GlobalKey<FormState> signUpFormKey = GlobalKey();
   GlobalKey<FormState> signInFormKey = GlobalKey();
+  GlobalKey<FormState> forgetPasswordFormKey = GlobalKey();
   bool obscureText = true;
 
   signUpWithEmailAndPassword() async {
@@ -23,16 +24,25 @@ class AuthCubit extends Cubit<AuthState> {
         email: emailAddress!,
         password: password!,
       );
+      verifyEmail();
       emit(SignUpSuccessState());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         emit(SignUpFailureState('The password provided is too weak.'));
       } else if (e.code == 'email-already-in-use') {
         emit(SignUpFailureState('The account already exists for that email.'));
+      } else if (e.code == 'invalid-email') {
+        emit(SignUpFailureState('This Email is Invalid'));
+      } else {
+        emit(SignUpFailureState(e.code));
       }
     } catch (e) {
       emit(SignUpFailureState(e.toString()));
     }
+  }
+
+  verifyEmail() async {
+    await FirebaseAuth.instance.currentUser!.sendEmailVerification();
   }
 
   updateTermsAndConditionCheckBox({required newValue}) {
@@ -62,11 +72,21 @@ class AuthCubit extends Cubit<AuthState> {
         emit(SignInFailureState(" No user found for that email"));
       } else if (e.code == 'wrong-password') {
         emit(SignInFailureState('Wrong password provided for that user.'));
-      } else{
+      } else {
         emit(SignInFailureState('Check your Email and Password'));
       }
     } catch (e) {
       emit(SignInFailureState(e.toString()));
+    }
+  }
+
+  resetPasswordWithLink() async {
+    try {
+      emit(ResetPasswordLoadingState());
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: emailAddress!);
+      emit(ResetPasswordSuccessState());
+    } on Exception catch (e) {
+      emit(ResetPasswordFailureState(e.toString()));
     }
   }
 }
