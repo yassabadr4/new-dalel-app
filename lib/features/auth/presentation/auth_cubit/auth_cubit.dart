@@ -19,7 +19,6 @@ class AuthCubit extends Cubit<AuthState> {
   signUpWithEmailAndPassword() async {
     try {
       emit(SignUpLoadingState());
-
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailAddress!,
         password: password!,
